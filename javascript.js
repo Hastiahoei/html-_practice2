@@ -1,16 +1,19 @@
-// const ul = document.querySelector("ul")
-// ul.remove();
-const button = document.querySelector("button")
+const clock = document.querySelector(".clock");
 
-button.addEventListener("click", ()=>{
-console.log("you clicked me");
-})
+const tick = ()=>{
 
-const items = document.querySelectorAll("li");
-items.forEach(items => {
-    items.addEventListener("click",e => {
-        console.log("item clicked");
-        console.log(e.target);
-        console.log(items);
-    });
-});
+const now = new Date();
+
+const h = now.getHours();
+const m = now.getMinutes();
+const s = now.getSeconds();
+
+const html = `
+<span>${h}</span> :
+<span>${m}</span> :
+<span>${s}</span> 
+
+`;
+clock.innerHTML = html;
+};
+setInterval(tick,1000);
